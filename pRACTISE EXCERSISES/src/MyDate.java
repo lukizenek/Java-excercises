@@ -4,6 +4,12 @@ public class MyDate {
 	private int month;
 	private int year;
 	boolean leap;
+	public MyDate(int d, int m, int y) {
+		this.day = d;
+		this.month = m;
+		this.year = y;
+		
+	}
 	public void setDay(int d) {
 		this.day = d;
 		
@@ -45,24 +51,55 @@ public class MyDate {
 	}
 	public int daysInMonth(int m) {
 		this.month = m;
-		if(m % 2 == 0 && leap == false && m != 2) 
+		int days;
+		switch(m) 
 		{
-			int days = 30;
+		case 1:
+			days = 31;
 			return days;
-		}
-		else if(m % 2 == 0 && leap == false && m == 2) 
-		{
-			int days = 28;
+		case 2:
+			if(isLeapYear(this.year) == true) 
+			{
+				days = 29;
+				return days;
+			}
+			else 
+			{
+				days = 28;
+				return days;
+			}
+		case 3:
+			days = 31;
 			return days;
-		}
-		else if(m % 2 == 0 && leap == false && m == 2) 
-		{
-			int days = 29;
+		case 4:
+			days = 30;
 			return days;
-		}
-		else 
-		{
-			int days = 31;
+		case 5:
+			days = 31;
+			return days;
+		case 6:
+			days = 30;
+			return days;
+		case 7:
+			days = 31;
+			return days;
+		case 8:
+			days = 31;
+			return days;
+		case 9:
+			days = 30;
+			return days;
+		case 10:
+			days = 31;
+			return days;
+		case 11:
+			days = 30;
+			return days;
+		case 12:
+			days = 31;
+			return days;
+		default:
+			days = 0;
 			return days;
 		}
 		
@@ -145,6 +182,9 @@ public class MyDate {
 		
 		}
 		
+	}
+	public void nextDay() {
+		++this.day;
 	}
 	//public String getWeekDay()
 }

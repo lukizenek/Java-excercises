@@ -3,6 +3,7 @@ public class Clock {
 private int hour;
 private int minute;
 private int second;
+private boolean timeFormat24;
 
 public Clock(int h, int m, int s) 
 {
@@ -25,7 +26,9 @@ public int getSecond() {
 public int getMinute() {
 	return this.minute;
 }
-public
+public int getHour() {
+	return this.hour;
+}
 public Clock(int totalTimeInSec) 
 {
 	this.hour = totalTimeInSec/3600;
@@ -33,11 +36,39 @@ public Clock(int totalTimeInSec)
 	this.second = totalTimeInSec%60;
 
 }
-public int timeInSeconds(Clock time, Clock time2) {
-	int tinsec = 
-	
+public int convertToSeconds() {
+	int tseconds = ((this.hour * 3600) + (this.minute * 60) + this.second);
+	return tseconds;
+}
+public int timeInSeconds(Clock time) {
+	int tinsec = time.convertToSeconds();
+	return tinsec;
+}
+public Clock timeTo(Clock time) {
+	return new Clock(this.timeInSeconds(time));
+}
+public boolean isBefore(Clock time) {
+	return this.convertToSeconds() < time.convertToSeconds();
 }
 public String toString() {
 	return "Time: " + hour + ":" + minute + ":" + second;
+}
+public boolean isTimeFormat24() {
+	return timeFormat24;
+	
+}
+public void setTimeFormat(int hourFormat) {
+	if(hourFormat == 24)
+	{
+		timeFormat24 = true;
+	}
+	else if(hourFormat == 12)
+	{
+		timeFormat24 = false;
+	}
+	else 
+	{
+		
+	}
 }
 }

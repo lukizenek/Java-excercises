@@ -9,11 +9,11 @@ public Job2(String t, double s, Person employee) {
 	this.salary = s;
 	//this.employee = Person();
 }
-//public Job2(String t, double s) {
-	//title = t;
-	//salary = s;
-	//employee = null;
-//}
+public Job2(String t, double s) {
+	title = t;
+	salary = s;
+	employee = null;
+	}
 public void setTitle(String t) {
 	this.title = t;
 }

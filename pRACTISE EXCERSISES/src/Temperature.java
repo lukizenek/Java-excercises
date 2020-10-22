@@ -1,4 +1,4 @@
-
+ 
 public class Temperature {
 private double fTemp;
 public Temperature(double ft) {
