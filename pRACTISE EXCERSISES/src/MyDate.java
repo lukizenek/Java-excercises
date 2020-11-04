@@ -1,9 +1,10 @@
-
+import java.util.GregorianCalendar;
 public class MyDate {
 	private int day;
 	private int month;
 	private int year;
 	boolean leap;
+	boolean equals;
 	public MyDate(int d, int m, int y) {
 		this.day = d;
 		this.month = m;
@@ -49,7 +50,8 @@ public class MyDate {
 		}
 		
 	}
-	public int daysInMonth(int m) {
+	public int daysInMonth(int m) 
+	{
 		this.month = m;
 		int days;
 		switch(m) 
@@ -185,6 +187,67 @@ public class MyDate {
 	}
 	public void nextDay() {
 		++this.day;
+		if(this.getDay() > this.daysInMonth(this.getMonth())) 
+		{
+			this.setMonth(this.getMonth() + 1);
+			if (this.getMonth() > 12) 
+			{
+				this.setMonth(1);
+				this.setYear(this.getYear() + 1);
+			}
+			this.setDay(1);
+		}
+	}
+	public boolean equals(MyDate obj) {
+		if(obj.getDay() == obj.getMonth() && obj.getYear() == obj.getMonth() && obj.getYear() == obj.getDay()) {
+			equals = true;
+		}
+		else {
+			equals = false;
+		}
+		return equals;
+	}
+	public MyDate copy() {
+		return new MyDate(day, month, year);
+	}
+	public MyDate(MyDate obj) {
+		day = obj.day;
+		month = obj.month;
+		year = obj.year;
+	}
+	public void nextDays(int d) {
+		int i;
+		for(i = (d-1); i >= 0; i--) 
+		{
+			
+			if(this.getDay() > this.daysInMonth(this.getMonth())) 
+			{
+				this.setMonth(this.getMonth() + 1);
+				if (this.getMonth() > 12) 
+				{
+					this.setMonth(1);
+					this.setYear(this.getYear() + 1);
+				}
+				this.setDay(1);
+			}
+			++this.day;
+			
+		}
+	}
+	public static MyDate today() 
+	{
+		GregorianCalendar currentDate = new GregorianCalendar();
+		int currentDay = currentDate.get(GregorianCalendar.DATE);
+		int currentMonth = currentDate.get(GregorianCalendar.MONTH)+1;
+		int currentYear = currentDate.get(GregorianCalendar.YEAR);
+		MyDate today = new MyDate(currentDay, currentMonth, currentYear);
+		return today;
+	}
+	public MyDate() {
+		MyDate today = MyDate.today();
+		this.day = today.day;
+		this.month = today.month;
+		this.year = today.year;
 	}
 	//public String getWeekDay()
 }

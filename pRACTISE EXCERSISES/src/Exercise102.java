@@ -7,6 +7,7 @@ public class Exercise102 {
 		boolean lY = false;
 		int lYC = 0;
 		MyDate date1 = new MyDate(1, 1, 1582);
+		MyDate copyDate = date1.copy();
 		System.out.print("Enter the initiation year: ");
 		date1.setYear(key.nextInt());
 		key.nextLine();
@@ -23,6 +24,13 @@ public class Exercise102 {
 			}
 		}
 		System.out.println("The number of leap years is equal to: " + lYC);
+		
+		System.out.println(copyDate.displayDate());
+		System.out.println("Enter numbers of days to skip:  ");
+		int i = key.nextInt();
+		date1.nextDays(i);
+		System.out.println(date1.displayDate());
+		
 	}
 
 }
