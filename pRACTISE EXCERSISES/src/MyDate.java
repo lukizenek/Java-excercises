@@ -198,14 +198,12 @@ public class MyDate {
 			this.setDay(1);
 		}
 	}
-	public boolean equals(MyDate obj) {
-		if(obj.getDay() == obj.getMonth() && obj.getYear() == obj.getMonth() && obj.getYear() == obj.getDay()) {
-			equals = true;
+	public boolean equals(Object obj) {
+		if(!(obj instanceof MyDate)) {
+			return false;
 		}
-		else {
-			equals = false;
-		}
-		return equals;
+		MyDate other = (MyDate)obj;
+		return day == other.day && this.month == other.month && this.year == other.year;
 	}
 	public MyDate copy() {
 		return new MyDate(day, month, year);
@@ -248,6 +246,14 @@ public class MyDate {
 		this.day = today.day;
 		this.month = today.month;
 		this.year = today.year;
+	}
+	public boolean isBefore(MyDate date) {
+		if(day <= date.day && month <= date.month && year <= date.month) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	//public String getWeekDay()
 }

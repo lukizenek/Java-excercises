@@ -1,29 +1,57 @@
 
 public class Car {
-private int yearModel;
+private int year;
 private String make;
-private int speed;
+private String color;
+private String model;
+private String licenseNumber;
 
-public Car(int yM, String m) {
-	yearModel = yM;
-	make = m;
-	speed = 0;
+public Car(int y, String m, String c, String md, String lN) {
+	this.year = y;
+	this.make = m;
+	this.color = c;
+	this.model = md;
+	this.licenseNumber = lN;
+	
 }
-public int getYearModel() {
-	return yearModel;
+public Car(int y, String m, String c, String md) {
+	this.year = y;
+	this.make = m;
+	this.color = c;
+	this.model = md;
+	this.licenseNumber = null;
+	
+}
+public int getYear() {
+	return year;
 }
 public String getMake() {
 	return make;
 }
-public int getSpeed() {
-	return speed;
+public String getColor() {
+	return color;
 }
-public void accelerate() {
-	speed += 5;
-	
+public String getModel() {
+	return model;
 }
-public void decelerate() {
-	speed -= 5;
+public String getLicenseNumber() {
+	return licenseNumber;
+}
+public void setColor(String c) {
+	this.color = c;
+}
+public void setLicenseNumber(String lN) {
+	this.licenseNumber = lN;
+}
+public Car copy() {
+	return new Car(year, make, color, model, licenseNumber);
+}
+public boolean equals(Object obj) {
+	if(!(obj instanceof Car)) {
+		return false;
+	}
+	Car other = (Car)obj;
+	return this.year == other.year && this.make == other.make && this.color == other.color && this.model == other.model && this.licenseNumber == other.licenseNumber;
 }
 }
 
