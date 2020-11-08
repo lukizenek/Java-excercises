@@ -33,6 +33,9 @@ public class Exercise103 {
 		System.out.println(cDay.displayDate());
 		MyDate today = new MyDate();
 		System.out.println(today.displayDate());
+		boolean before = today.isBefore(today);
+		System.out.println(before);
+		System.out.println(cDay.equals(today));
 	}
 
 }
