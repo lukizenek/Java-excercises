@@ -203,9 +203,8 @@ public class MyDate {
 		if(!(obj instanceof MyDate)) {
 			return false;
 		}
-		
+	
 		MyDate other = (MyDate)obj;
-		
 		return this.day == other.day && this.month == other.month && this.year == other.year;
 	}
 	public MyDate copy() {
@@ -250,6 +249,7 @@ public class MyDate {
 		this.month = today.month;
 		this.year = today.year;
 	}
+
 	public boolean isBefore(MyDate date)
 	{
 		if(this.day <= date.day && this.month <= date.month && this.year <= date.year) {
