@@ -2,8 +2,8 @@
 public class Job {
 	private String jobName;
 	private int monthlySalary;
-	private String startDate;
-	private String endDate;
+	//private String startDate;
+	//private String endDate;
 	
 	public void setName(String n) {
 		jobName = n;
