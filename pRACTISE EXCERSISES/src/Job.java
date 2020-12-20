@@ -4,6 +4,11 @@ public class Job {
 	private int monthlySalary;
 	//private String startDate;
 	//private String endDate;
+	public Job(String n, double mS, MyDate eS) {
+		this.jobName = n;
+		this.monthlySalary = mS;
+		
+	}
 	
 	public void setName(String n) {
 		jobName = n;
